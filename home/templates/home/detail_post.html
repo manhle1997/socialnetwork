@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block body %}
+
+    <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 left  top">
+      <div class="card-body">
+        <p class="card-text text-muted h5"><a href="{% url 'view_profile_with_pk' pk=post.user.pk %}"><h5>{{ post.user }}</h5></a>|{{ post.created }}</p>
+        <p class="card-text ">{{ post.post | safe | linebreaksbr}}</p>
+
+        {% for comment in post.comments.all %}
+            <p><a href="{% url 'view_profile_with_pk' pk=comment.author.pk %}">{{ comment.author }}</a>:{{ comment.body }}</p>
+        {% endfor %}
+{#        <p>{{ post.comments.count }} comments</p>#}
+      <p>Leave the comment:</p>
+          <form method="POST">
+            {% csrf_token %}
+            {{ form_comment.body }}
+            <button type="submit">Submit</button>
+          </form>
+
+    </div>
+    </div>
+
+{#    {{ post.post|linebreaks  }}#}
+{#    {% for comment in post.comments.all %}#}
+{#        <p>{{ comment.author }}:{{ comment.body }}</p>#}
+{#    {% endfor %}#}
+{#    <form method="POST">#}
+{#    {% csrf_token %}#}
+{#    {{ form_comment.as_p }}#}
+{#    <button type="submit">Submit</button>#}
+{#    </form>#}
+{% endblock %}

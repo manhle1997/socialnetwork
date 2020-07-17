@@ -1,0 +1,20 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: nguyenxung888@gmail.com
+Date: Sat, 18 Apr 2020 11:53:19 -0000
+Message-ID: <158721079950.9968.7392329103089077750@manhle-Inspiron-15-3567>
+
+
+You're receiving this email because you requested a password reset for your user account at 127.0.0.1:8000.
+Please go to the following page and choose a new password:
+
+http://127.0.0.1:8000/accounts/profile/reset-password/confirm/NQ/5fr-4a0dd1de0acbf26c1b92/
+
+Your username, in case you’ve forgotten: hpqueanh
+Thanks for using our site!
+The 127.0.0.1:8000 team
+
+-------------------------------------------------------------------------------

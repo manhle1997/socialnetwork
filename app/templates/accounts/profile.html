@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="/static/css/css_profile/bootstrap.min.css"/>
+<link rel="stylesheet" href="/static/css/css_profile/font-awesome.min.css"/>
+<link rel="stylesheet" href="/static/css/css_profile/flaticon.css"/>
+<link rel="stylesheet" href="/static/css/css_profile/owl.carousel.css"/>
+<link rel="stylesheet" href="/static/css/css_profile/magnific-popup.css"/>
+<link rel="stylesheet" href="/static/css/css_profile/style.css"/>
+{% extends 'base.html' %}
+{% block body %}
+{#    <div class="container" style="margin-top: 50px">#}
+{#    <h3>{{ user.username }} Profile</h3>#}
+{#    <p>Username: {{ user.username }}</p>#}
+{#    <p>Fullname: {{ user.first_name }} {{ user.last_name }}</p>#}
+{#    <p>Email: {{ user.email }}</p>#}
+{#    <p>Website: {{ user.userprofile.website }}</p>#}
+{#    <p><a href="{% url 'edit_profile' %}">Edit</a></p>#}
+{#        <p><a href="{% url 'add_image_avatar' %}">add Avatar</a></p>#}
+{#    <img src="/{{ user.userprofile.image }}">#}
+{#    <p>{{ user.userprofile.image }}</p>#}
+{#    </div>#}
+    <section class="hero-section spad">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-10 offset-xl-1">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="hero-text">
+                                <div class="row">
+                                    <div class="col-6"><img src="/{{ user.userprofile.image }}" alt="5"></div>
+                                        <ul style="list-style: none;">
+                                            <li><div class="col-6"><a href="{% url 'view_profile_with_pk' pk=user.pk %}"><h3>{{ user.username }}</h3></a></div></li>
+                                            <li>
+
+                                                {% if temp == 'True' %}
+                                                    <button class="btn btn-primary" style="margin-left: 15px"><a href="{% url 'change_friend' operation='add' pk=user.pk %}" style="color: white">Theo dõi</a></button>
+                                                {% elif temp == 'False' %}
+                                                    <button class="btn btn-primary" style="margin-left: 15px"><a href="{% url 'change_friend' operation='remove' pk=user.pk %}" style="color: white">Hủy theo dõi</a></button>
+                                                {% endif %}
+{#                                                Nếu user có trong bạn bè rồi thì temp sai  lúc này hiển thị nút Hủy theo dõi#}
+{#                                                Sau khi hủy theo dõi thì user không còn trong bạn bè thì temp đúng và hiển thị nút theo dõi#}
+                                            </li>
+                                        </ul>
+
+{#                                    {{ user.username }}#}
+{#                                    {{ request.user }}#}
+{#                                    là tài khoản đang đăng nhập#}
+
+
+
+                                </div>
+
+                            </div>
+							<div class="hero-info">
+								<h4>Thông tin cơ bản</h4>
+								<ul>
+									<li><p>Tên: {{ user.first_name }} {{ user.last_name }}</p></li>
+									<li><p>Email: {{ user.email }}</p></li>
+									<li><p>Website: {{ user.userprofile.website }}</p></li>
+								</ul>
+                            <div>
+                                {% for post in posts %}
+                                    <p style=""><a href="{% url 'view_profile' %}">{{ post.user }} </a>: {{ post.post | linebreaksbr}}</p>
+                                    <p>{{ post.created }}</p>
+                                {% endfor %}
+                            </div>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<figure class="hero-image">
+{#								<img src="/{{ user.userprofile.image }}" alt="5">#}
+							</figure>
+						</div>
+                        <div class="hero-info">
+
+                        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

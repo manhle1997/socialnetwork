@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block body %}
+   <div id="logreg-forms">
+        <!-- FORM LOG IN -->
+        <form class="form-signin" method="POST">
+            {% csrf_token %}
+            <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign Up</h1>
+            <div class="social-login">
+                <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign up with Facebook</span> </button>
+                <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign up with Google+</span> </button>
+            </div>
+            <p style="text-align:center"> OR  </p>
+{#            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">#}
+{#            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">#}
+            {{ reg_form.username }}
+            <p></p>
+            {{ reg_form.email }}
+            <p></p>
+            {{ reg_form.password1 }}
+            <p></p>
+            {{ reg_form.password2 }}
+            <p></p>
+            {{ reg_form.first_name }}
+            <p></p>
+            {{ reg_form.last_name }}
+            <p></p>
+            <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Sign Up</button>
+            <a href="{% url 'login' %}" id="forgot_pswd">Bạn đã có một tài khoản ?</a>
+            <!-- <p>Don't have an account!</p>  -->
+
+        </form>
+        <!-- FORM RESET PASSWORD -->
+
+
+
+            <br>
+
+    </div>
+{% endblock body %}
+
+
+
